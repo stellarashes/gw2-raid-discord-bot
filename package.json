@@ -1,0 +1,19 @@
+{
+  "name": "gw2-raid-discord-bot",
+  "version": "1.0.0",
+  "description": "Bot to announce info via discord at set intervals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stellarashes/gw2-raid-discord-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stellarashes/gw2-raid-discord-bot/issues"
+  },
+  "homepage": "https://github.com/stellarashes/gw2-raid-discord-bot#readme"
+}
