@@ -24,4 +24,4 @@ Bot to announce info via discord at set intervals
 * `!stop` Stop the current timer
 
 # Docker
-If you know about docker I assume you already know how to run this as is, but if you want to run a hosted version of this, an image of this is also pre-built on docker hub under `docker pull stellarashes/gw2-raid-timer`
+If you know about docker I assume you already know how to run this as is, but if you want to run a hosted version of this, an image of this is also pre-built on docker hub under `stellarashes/gw2-raid-timer`
