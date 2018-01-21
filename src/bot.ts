@@ -24,6 +24,7 @@ export class Bot {
             try {
                 await command.process();
             } catch (e) {
+                await message.reply(`Error occurred (${e.message})`);
                 console.error(e);
             }
         }

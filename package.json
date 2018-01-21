@@ -4,6 +4,7 @@
   "description": "Bot to announce info via discord at set intervals",
   "main": "index.js",
   "scripts": {
+    "start": "node bin/index.js --require source-map-support/register",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,8 +26,10 @@
     "ffmpeg-binaries": "^3.2.2-3",
     "google-tts-api": "0.0.2",
     "lodash": "^4.17.4",
+    "minimist-string": "^1.0.2",
     "node-opus": "^0.2.7",
-    "sodium": "^2.0.3"
+    "sodium": "^2.0.3",
+    "source-map-support": "^0.5.2"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",

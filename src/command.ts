@@ -1,6 +1,8 @@
 import {Message} from "discord.js";
 import {Bot} from "./bot";
 import {TextToSpeech} from "./text-to-speech";
+import * as minimist from "minimist-string";
+import {MechanicsMapper} from "./mechanics-mapper";
 
 export class Command {
     static tts: TextToSpeech = new TextToSpeech();
@@ -18,13 +20,26 @@ export class Command {
                     await this.context.reply('You are not in a voice channel');
                 }
                 break;
-            case 'say':
-                await this.say(this.args);
-                break;
             case 'disconnect':
+                Command.tts.clearTimeout();
                 await this.bot.client.destroy();
                 break;
+            case 'start':
+                await this.startBoss(this.args);
+                break;
+            case 'stop':
+                Command.tts.clearTimeout();
+                break;
         }
+    }
+
+    private async startBoss(params: string) {
+        const parsed = minimist(params);
+        let names: string[] = parsed['_'];
+        let boss = names.shift();
+
+        let times = MechanicsMapper.getTimeToMessageMap(boss, names);
+        await Command.tts.sayTimeMap(times, this.say.bind(this));
     }
 
     private async say(text: string) {
@@ -35,6 +50,10 @@ export class Command {
         }
 
         const targetFile = await TextToSpeech.getFileName(text);
-        this.bot.connection.playFile(targetFile);
+        let dispatcher = this.bot.connection.playFile(targetFile);
+        return new Promise((resolve, reject) => {
+            dispatcher.on('end', resolve);
+            dispatcher.on('error', reject);
+        });
     }
 }
