@@ -17,8 +17,8 @@ export class Mechanics {
     static fromJson(data: any, timeLimit: number) {
         return new Mechanics(
             data.interval, data.playersInvolved,
-            data.mechanicNames, data.warnTime,
-            data.startTime, data.endTime || timeLimit
+            data.mechanicNames, data.warnTime || 0,
+            data.startTime || 0, data.endTime || timeLimit
         );
     }
 

@@ -45,11 +45,9 @@ export class TextToSpeech {
     public async sayTimeMap(timeMap: {[time: string]: string[]}, sayDelegate: (text) => Promise<any>) {
         this.clearTimeout();
         let values = _.flatten(Object.values(timeMap));
-        await Promise.all([
-            Promise.all(values.map(text => TextToSpeech.getFileName(text))),
-            sayDelegate('Starting in 3, 2, 1'),
-        ]);
 
+        await Promise.all(values.map(text => TextToSpeech.getFileName(text)));
+        await sayDelegate('Starting in 3.  2.  1.  ');
         await sayDelegate('Go');
 
         TextToSpeech.timeoutHandles = Object.entries(timeMap)

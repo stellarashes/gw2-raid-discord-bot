@@ -1,6 +1,5 @@
 import * as fs from "fs";
 import {Bot} from "./bot";
-import {MechanicsMapper} from "./mechanics-mapper";
 
 if (fs.existsSync('.env')) {
     require('dotenv').config();

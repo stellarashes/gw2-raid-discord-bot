@@ -14,17 +14,44 @@ export const KnownBosses = {
                     "swirl",
                     "triangle"
                 ],
-                "warnTime": 5000
+                "warnTime": 10000
+            },
+            {
+                "startTime": 210000,
+                "interval": 80000,
+                "mechanicNames": [
+                    "hold bombs"
+                ],
+                "warnTime": 10000
             },
             {
                 "startTime": 210000,
                 "interval": 80000,
                 "mechanicNames": [
                     "soul split"
-                ],
-                "warnTime": 5000
+                ]
             }
         ],
         "timeLimit": 600000
+    },
+    "sab": {
+        "mechanics": [
+            {
+                "startTime": 30000,
+                "interval": 30000,
+                "playersInvolved": 2,
+                "mechanicNames": [
+                    "south",
+                    "west",
+                    "north",
+                    "east",
+                    "south",
+                    "north",
+                    "west",
+                    "east"
+                ],
+            }
+        ],
+        "timeLimit": 540000
     }
 };
