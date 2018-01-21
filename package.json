@@ -4,6 +4,7 @@
   "description": "Bot to announce info via discord at set intervals",
   "main": "index.js",
   "scripts": {
+    "compile": "tsc",
     "start": "node bin/index.js --require source-map-support/register",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
