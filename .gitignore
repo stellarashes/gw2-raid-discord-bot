@@ -58,3 +58,5 @@ typings/
 .env
 
 .idea
+voice_cache
+bin
