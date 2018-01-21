@@ -8,10 +8,10 @@ export class Mechanics {
      * @param startTime
      * @param endTime
      */
-    constructor(private interval: number, private numberOfPlayersInvolved: number,
-                private mechanicNames: string[] = [],
-                private warnTime: 5000,
-                private startTime: number = 0, private endTime: number = Infinity) {
+    constructor(public interval: number, public numberOfPlayersInvolved: number,
+                public mechanicNames: string[] = [],
+                public warnTime: 5000,
+                public startTime: number = 0, public endTime: number = Infinity) {
     }
 
     static fromJson(data: any, timeLimit: number) {
@@ -27,7 +27,7 @@ export class Mechanics {
         let time;
 
         for (let i = 0; (time = this.startTime + i * this.interval) < this.endTime; ++i) {
-            timeToMessageMap[time - this.warnTime] = this.getMessage(i, playerNames);
+            timeToMessageMap[time - this.warnTime] = [this.getMessage(i, playerNames)];
         }
 
         return timeToMessageMap;
