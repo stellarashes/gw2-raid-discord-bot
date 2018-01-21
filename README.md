@@ -7,7 +7,7 @@ Bot to announce info via discord at set intervals
 * Go to https://discordapp.com/developers/applications/me while logged into discord and create an app
 * Create a bot user for the app
 * Authorize your bot to your server (click "Generate OAuth2 URL" and make sure at least send message, connect voice, and speak are enabled; navigate to the link if you are the server admin; if not, send the link to the server admin and check public bot in the page before)
-* Go back to the app page, there should be an username and token, with a link called "click to reveal"; copy this down as you will need this later
+* Go back to the app page, there should be an username and token, with a link called "click to reveal"; reveal the token and copy this down as you will need this later
 
 ## Running the bot
 * Download or clone a copy of this repo
