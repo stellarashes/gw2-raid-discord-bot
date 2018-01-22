@@ -32,7 +32,7 @@ export class Bot {
 
     private parseCommand(message: Message) {
         const content = message.content;
-        if (content.startsWith('!')) {
+        if (content.startsWith(process.env.COMMAND_PREFIX || '!')) {
             const withoutPrefix = content.substr(1);
             const firstSpaceIndex = withoutPrefix.indexOf(' ');
             const command = withoutPrefix.substr(0, firstSpaceIndex > -1 ? firstSpaceIndex : withoutPrefix.length);

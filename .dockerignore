@@ -1,3 +1,4 @@
 node_modules
 voice_cache
 bin
+.env
