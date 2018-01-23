@@ -6,4 +6,8 @@ if (fs.existsSync('.env')) {
 }
 
 new Bot(process.env.DISCORD_TOKEN).login()
-    .then(() => console.log('logged in'));
+    .then(() => console.log('logged in'))
+    .catch(err => {
+        console.log('Login failed; was the wrong token pasted in? Please double check .env file');
+        console.error(err);
+    });
