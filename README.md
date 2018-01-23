@@ -26,6 +26,7 @@ Files under the folder bosses outlines the times when the bot will call out spec
 * timeLimit: maximum time for the encounter mechanics
 * for each mechanic object:
 	* startTime: seconds into the fight when this mechanic first occur
+	* endTime: seconds into the fight when this mechanic stops; if not set, assume end of fight (as set by timeLimit)
 	* interval: seconds between when this mechanic occurs
 	* playersInvolved: number of players involved; if set, bot will call out a rotating names with mechanics; i.e., 2 => Player 1 on South, Player 2 on West, Player 1 on North, etc
 	* mechanicNames: array of strings of individual mechanic names
