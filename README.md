@@ -11,7 +11,7 @@ Highly configurable bot to announce raid boss mechanics
 
 ## Running the bot
 * Easiest way is to use an existing release for windows, available here: https://github.com/stellarashes/gw2-raid-discord-bot/releases
-* Edit the file in the extracted files, and put "DISCORD_TOKEN={token}", where {token} is the token you got from your bot above
+* Edit the `.env` file in the extracted files, and put "DISCORD_TOKEN={token}", where {token} is the token you got from your bot above
 * Run `gw2-raid-discord-bot.exe`
 * Alternatively, you can also install node and build the bot from source; note that this has dependencies that use node-gyp, which means you will have to go through several tool installs (including Microsoft's build tool, etc, as seen guide here: https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#compiling-native-addon-modules).  If you don't know much about programming/building, it's recommended that you use the release build above.
 
