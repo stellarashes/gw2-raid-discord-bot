@@ -56,7 +56,7 @@ export class TextToSpeech {
                     for (const text of value) {
                         await sayDelegate(text);
                     }
-                }, Number(key));
+                }, Number(key) * 1000);
             });
     }
 

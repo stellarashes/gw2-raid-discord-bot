@@ -1,0 +1,35 @@
+{
+  "mechanics": [
+    {
+      "startTime": 30,
+      "interval": 30,
+      "playersInvolved": 3,
+      "mechanicNames": [
+        "arrow",
+        "circle",
+        "heart",
+        "square",
+        "star",
+        "swirl",
+        "triangle"
+      ],
+      "warnTime": 10
+    },
+    {
+      "startTime": 210,
+      "interval": 80,
+      "mechanicNames": [
+        "hold bombs"
+      ],
+      "warnTime": 10
+    },
+    {
+      "startTime": 210,
+      "interval": 80,
+      "mechanicNames": [
+        "soul split"
+      ]
+    }
+  ],
+  "timeLimit": 600
+}

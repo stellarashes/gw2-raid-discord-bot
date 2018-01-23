@@ -54,6 +54,7 @@ export class Command {
         return new Promise((resolve, reject) => {
             dispatcher.on('end', resolve);
             dispatcher.on('error', reject);
+            dispatcher.player.on('error', reject);
         });
     }
 }

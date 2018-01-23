@@ -1,14 +1,17 @@
 import {Mechanics} from "./mechanics";
 import * as _ from "lodash";
-import {KnownBosses} from "./bosses";
+import * as fs from "fs";
 
 export class MechanicsMapper {
     public static getTimeToMessageMap(boss: string, playerNames: string[] = []) {
-        if (!KnownBosses[boss]) {
-            throw new Error(`No boss with ${boss} name found`);
+        boss = boss.toLowerCase();
+
+        let path = `bosses/${boss}.json`;
+        if (!fs.existsSync(path)) {
+            throw new Error(`No boss with name "${boss}" found; please make sure ${path} exists`);
         }
 
-        const bossData = KnownBosses[boss];
+        const bossData = JSON.parse(fs.readFileSync(path).toString());
 
         const timeLimit = bossData.timeLimit;
         if (!timeLimit) {

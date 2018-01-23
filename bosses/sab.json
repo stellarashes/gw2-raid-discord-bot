@@ -1,0 +1,21 @@
+{
+  "mechanics": [
+    {
+      "startTime": 30,
+      "interval": 30,
+      "playersInvolved": 2,
+      "mechanicNames": [
+        "south",
+        "west",
+        "north",
+        "east",
+        "south",
+        "north",
+        "west",
+        "east"
+      ],
+      "warnTime": 5
+    }
+  ],
+  "timeLimit": 540
+}

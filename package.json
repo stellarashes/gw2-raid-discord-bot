@@ -2,7 +2,8 @@
   "name": "gw2-raid-discord-bot",
   "version": "1.0.0",
   "description": "Bot to announce info via discord at set intervals",
-  "main": "index.js",
+  "main": "bin/index.js",
+  "bin": "bin/index.js",
   "scripts": {
     "compile": "tsc",
     "start": "node bin/index.js --require source-map-support/register",
@@ -18,9 +19,13 @@
     "url": "https://github.com/stellarashes/gw2-raid-discord-bot/issues"
   },
   "homepage": "https://github.com/stellarashes/gw2-raid-discord-bot#readme",
+  "optionalDependencies": {
+    "sodium": "^2.0.3"
+  },
   "dependencies": {
     "@types/lodash": "^4.14.93",
     "@types/node": "^9.3.0",
+    "bufferutil": "^3.0.3",
     "discord.js": "^11.3.0",
     "download": "^6.2.5",
     "erlpack": "^0.1.2",
@@ -29,7 +34,6 @@
     "lodash": "^4.17.4",
     "minimist-string": "^1.0.2",
     "node-opus": "^0.2.7",
-    "sodium": "^2.0.3",
     "source-map-support": "^0.5.2"
   },
   "devDependencies": {
