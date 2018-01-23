@@ -34,5 +34,8 @@ Files under the folder bosses outlines the times when the bot will call out spec
 
 You can also create your own file; i.e., creating `x.json` in bosses folder will allow you to use `!start x`.  This would mean you can easily implement any boss callout timer you want for discord.  Please note that the times are in seconds, and timeLimit is required.
 
+# Known issues
+* The longer the bot runs and stays in discord channel, there longer the pause between "3, 2, 1" and "go" becomes.  I'm not entirely sure what the cause is, other than the underlying library not notifying the bot when the voice has finished talking.  In my testing this hadn't affected the actual timer, but let me know if someone observes something different
+
 # Questions / comments?
 Message me at *phoenix.2518*
