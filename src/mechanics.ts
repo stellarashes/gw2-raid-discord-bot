@@ -1,17 +1,23 @@
 export class Mechanics {
+    private numberOfPlayersInvolved: number;
     /**
      * All times are in milliseconds
      * @param interval
-     * @param numberOfPlayersInvolved
+     * @param playersInvolved
      * @param mechanicNames
      * @param warnTime
      * @param startTime
      * @param endTime
      */
-    constructor(public interval: number, public numberOfPlayersInvolved: number,
+    constructor(public interval: number, public playersInvolved: number | string[],
                 public mechanicNames: string[] = [],
                 public warnTime: 5000,
                 public startTime: number = 0, public endTime: number = Infinity) {
+        if (Array.isArray(playersInvolved)) {
+            this.numberOfPlayersInvolved = (<string[]>this.playersInvolved).length;
+        } else if (typeof this.playersInvolved === 'number') {
+            this.numberOfPlayersInvolved = this.playersInvolved;
+        }
     }
 
     static fromJson(data: any, timeLimit: number) {

@@ -20,7 +20,7 @@ export class MechanicsMapper {
 
         const maps = bossData.mechanics.map(mech => {
                 let mechanic = Mechanics.fromJson(mech, timeLimit);
-                return mechanic.getTimeToMessageMap(this.padPlayerNames(mechanic, playerNames));
+                return mechanic.getTimeToMessageMap(this.getPlayerNames(mechanic, playerNames));
             }
         );
 
@@ -31,15 +31,29 @@ export class MechanicsMapper {
         });
     }
 
-    private static padPlayerNames(mech: Mechanics, playerNames: string[]) {
-        if (mech.numberOfPlayersInvolved && playerNames.length < mech.numberOfPlayersInvolved) {
-            let padAmount = mech.numberOfPlayersInvolved - playerNames.length;
-            for (let i = 0; i < padAmount; ++i) {
-                playerNames.push(`Player ${playerNames.length + 1}`);
-            }
-        } else if (playerNames.length > mech.numberOfPlayersInvolved) {
-            return playerNames.slice(0, mech.numberOfPlayersInvolved);
+    private static getPlayerNames(mech: Mechanics, playerNames: string[]) {
+        if (typeof(mech.playersInvolved) === 'number') {
+            return this.padPlayerNames(mech.playersInvolved, playerNames, i => `Player ${i + 1}`);
+        } else if (Array.isArray(mech.playersInvolved)) {
+            return this.padPlayerNames(mech.playersInvolved.length, playerNames, i => mech.playersInvolved[i]);
+        } else {
+            return playerNames;
         }
-        return playerNames;
     }
+
+    private static padPlayerNames(numberOfPlayers: number, specifiedPlayerNames: string[], padPlayerNameDelegate: (index: number) => string) {
+        if (specifiedPlayerNames.length < numberOfPlayers) {
+            let baseAmount = specifiedPlayerNames.length;
+            let padAmount = numberOfPlayers - baseAmount;
+            for (let i = 0; i < padAmount; ++i) {
+                specifiedPlayerNames.push(padPlayerNameDelegate(i + baseAmount));
+            }
+        } else if (specifiedPlayerNames.length > numberOfPlayers) {
+            return specifiedPlayerNames.slice(0, numberOfPlayers);
+        } else {
+            return specifiedPlayerNames;
+        }
+    }
+
+
 }

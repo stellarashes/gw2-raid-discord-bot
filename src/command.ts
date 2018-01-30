@@ -30,6 +30,18 @@ export class Command {
             case 'stop':
                 Command.tts.clearTimeout();
                 break;
+            case 'leave':
+                if (this.bot.connection) {
+                    this.bot.connection.disconnect();
+                    this.bot.connection = null;
+                    global.gc();
+                }
+                break;
+            case 'rejoin':
+                let channel = this.bot.connection.channel;
+                await this.bot.connection.disconnect();
+                this.bot.connection = await channel.join();
+                break;
         }
     }
 
