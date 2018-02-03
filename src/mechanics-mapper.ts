@@ -48,6 +48,7 @@ export class MechanicsMapper {
             for (let i = 0; i < padAmount; ++i) {
                 specifiedPlayerNames.push(padPlayerNameDelegate(i + baseAmount));
             }
+            return specifiedPlayerNames;
         } else if (specifiedPlayerNames.length > numberOfPlayers) {
             return specifiedPlayerNames.slice(0, numberOfPlayers);
         } else {
