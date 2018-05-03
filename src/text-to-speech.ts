@@ -4,8 +4,8 @@ import * as path from "path";
 import * as fs from "fs";
 import * as download from "download";
 import * as _ from "lodash";
+import {LocalizationService} from "./localization-service";
 
-const folder = 'voice_cache';
 
 export class TextToSpeech {
     /**
@@ -16,10 +16,12 @@ export class TextToSpeech {
      */
     public static async getFileName(text: string) {
         const hash = TextToSpeech.hashText(text);
+        const folder = path.join('voice_cache', LocalizationService.getLocale());
         const filePath = path.join(process.cwd(), folder, hash);
 
         if (!fs.existsSync(filePath)) {
-            const url = await googleTTS(text, 'en', 1);
+            let locale = LocalizationService.getLocale();
+            const url = await googleTTS(text, locale, Number(process.env.TTS_SPEED || 1));
             await download(url, folder, {
                 filename: hash,
             });
@@ -47,8 +49,8 @@ export class TextToSpeech {
         let values = _.flatten(Object.values(timeMap));
 
         await Promise.all(values.map(text => TextToSpeech.getFileName(text)));
-        await sayDelegate('Starting in 3.  2.  1.  ');
-        await sayDelegate('Go');
+        await sayDelegate(LocalizationService.get('timer-count-down'));
+        await sayDelegate(LocalizationService.get('timer-start'));
 
         TextToSpeech.timeoutHandles = Object.entries(timeMap)
             .map(([key, value]) => {

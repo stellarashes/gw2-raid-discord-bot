@@ -1,3 +1,6 @@
+import {LocalizationService} from "./localization-service";
+import { sprintf } from "sprintf-js";
+
 export class Mechanics {
     private numberOfPlayersInvolved: number;
     /**
@@ -43,7 +46,7 @@ export class Mechanics {
         let mechanicName = this.mechanicNames[index % this.mechanicNames.length];
         if (this.numberOfPlayersInvolved > 0) {
             let playerName = playerNames[index % playerNames.length];
-            return `${playerName} on ${mechanicName}`;
+            return sprintf(LocalizationService.get('mechanics-formatter'), {playerName, mechanicName});
         } else {
             return mechanicName;
         }

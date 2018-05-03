@@ -21,7 +21,7 @@
       "mechanicNames": [
         "hold bombs"
       ],
-      "warnTime": 10
+      "warnTime": 5
     },
     {
       "startTime": 210,

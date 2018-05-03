@@ -1,6 +1,8 @@
 import {Mechanics} from "./mechanics";
 import * as _ from "lodash";
 import * as fs from "fs";
+import { sprintf } from "sprintf-js";
+import {LocalizationService} from "./localization-service";
 
 export class MechanicsMapper {
     public static getTimeToMessageMap(boss: string, playerNames: string[] = []) {
@@ -33,7 +35,7 @@ export class MechanicsMapper {
 
     private static getPlayerNames(mech: Mechanics, playerNames: string[]) {
         if (typeof(mech.playersInvolved) === 'number') {
-            return this.padPlayerNames(mech.playersInvolved, playerNames, i => `Player ${i + 1}`);
+            return this.padPlayerNames(mech.playersInvolved, playerNames, i => sprintf(LocalizationService.get('default-player-name-format'), {playerIndex: i}));
         } else if (Array.isArray(mech.playersInvolved)) {
             return this.padPlayerNames(mech.playersInvolved.length, playerNames, i => mech.playersInvolved[i]);
         } else {

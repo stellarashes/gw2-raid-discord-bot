@@ -1,0 +1,6 @@
+{
+  "timer-count-down": "Starting in 3.  2.  1.  ",
+  "timer-start": "Go",
+  "mechanics-format": "%(playerName)s on %(mechanicName)s",
+  "default-player-name-format": "Player %(playerIndex)d"
+}
