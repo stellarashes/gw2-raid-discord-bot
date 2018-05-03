@@ -46,7 +46,8 @@ export class Mechanics {
         let mechanicName = this.mechanicNames[index % this.mechanicNames.length];
         if (this.numberOfPlayersInvolved > 0) {
             let playerName = playerNames[index % playerNames.length];
-            return sprintf(LocalizationService.get('mechanics-formatter'), {playerName, mechanicName});
+            let mechanicsFormat = LocalizationService.get('mechanics-format');
+            return sprintf(mechanicsFormat, {playerName, mechanicName});
         } else {
             return mechanicName;
         }

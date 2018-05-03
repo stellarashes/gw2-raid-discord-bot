@@ -4,6 +4,7 @@ import {TextToSpeech} from "./text-to-speech";
 import * as minimist from "minimist-string";
 import {MechanicsMapper} from "./mechanics-mapper";
 import Bluebird = require("bluebird");
+import {debug} from "./debug";
 
 export class Command {
     static tts: TextToSpeech = new TextToSpeech();
@@ -64,9 +65,13 @@ export class Command {
 
         const targetFile = await TextToSpeech.getFileName(text);
         let dispatcher = this.bot.connection.playFile(targetFile);
+        debug(`Playing file for text: ${text}`);
         return new Bluebird((resolve, reject) => {
             dispatcher.on('end', resolve);
             dispatcher.on('error', reject);
-        }).finally(() => dispatcher.removeAllListeners());
+        }).finally(() => {
+            dispatcher.removeAllListeners();
+            debug(`Completed file play for ${text}`);
+        });
     }
 }

@@ -60,3 +60,4 @@ typings/
 .idea
 voice_cache
 bin
+/release/
