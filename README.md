@@ -28,7 +28,7 @@ Files under the folder bosses outlines the times when the bot will call out spec
 	* startTime: seconds into the fight when this mechanic first occur
 	* endTime: seconds into the fight when this mechanic stops; if not set, assume end of fight (as set by timeLimit)
 	* interval: seconds between when this mechanic occurs
-	* playersInvolved: number of players involved; if set, bot will call out a rotating names with mechanics; i.e., 2 => Player 1 on South, Player 2 on West, Player 1 on North, etc
+	* playersInvolved: number of players involved; if set, bot will call out a rotating names with mechanics; i.e., 2 => Player 1 on South, Player 2 on West, Player 1 on North, etc; you can also specify an array here for statics, but be sure the number of items in the array matches the number of players involved in the mechanics
 	* mechanicNames: array of strings of individual mechanic names
 	* warnTime: time in seconds to start warning about upcoming mechanic; i.e., dhuum green occurs at 30 seconds into the fight, warnTime: 10 means that bot will tell first player to go to green at 20 seconds into the fight
 
