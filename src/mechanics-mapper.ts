@@ -36,7 +36,7 @@ export class MechanicsMapper {
     private static getPlayerNames(mech: Mechanics, playerNames: string[]) {
         if (typeof(mech.playersInvolved) === 'number') {
             let nameFormat = LocalizationService.get('default-player-name-format');
-            return this.padPlayerNames(mech.playersInvolved, playerNames, i => sprintf(nameFormat, {playerIndex: i}));
+            return this.padPlayerNames(mech.playersInvolved, playerNames, i => sprintf(nameFormat, {playerIndex: i + 1}));
         } else if (Array.isArray(mech.playersInvolved)) {
             return this.padPlayerNames(mech.playersInvolved.length, playerNames, i => mech.playersInvolved[i]);
         } else {

@@ -65,7 +65,7 @@ export class Command {
 
         const targetFile = await TextToSpeech.getFileName(text);
         let dispatcher = this.bot.connection.playFile(targetFile);
-        debug(`Playing file for text: ${text}`);
+        debug(`Playing file for text: ${text}; file location: ${targetFile}`);
         return new Bluebird((resolve, reject) => {
             dispatcher.on('end', resolve);
             dispatcher.on('error', reject);
