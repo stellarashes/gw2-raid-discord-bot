@@ -1,6 +1,6 @@
 {
-  "timer-count-down": "À partir de 3. 2. 1.",
-  "timer-start": "Aller",
+  "timer-count-down": "Début du combat dans 3. 2. 1.",
+  "timer-start": "Go",
   "mechanics-format": "%(playerName)s sur %(mechanicName)s",
   "default-player-name-format": "Joueur %(playerIndex)d"
 

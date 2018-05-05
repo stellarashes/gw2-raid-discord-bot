@@ -4,7 +4,6 @@ import {TextToSpeech} from "./text-to-speech";
 import * as minimist from "minimist-string";
 import {MechanicsMapper} from "./mechanics-mapper";
 import Bluebird = require("bluebird");
-import {debug} from "./debug";
 
 export class Command {
     static tts: TextToSpeech = new TextToSpeech();
@@ -27,7 +26,8 @@ export class Command {
                 await this.bot.client.destroy();
                 break;
             case 'start':
-                await this.startBoss(this.args);
+            case 'startnow':
+                await this.startBoss(this.args, this.command.toLowerCase() === 'startnow');
                 break;
             case 'stop':
                 Command.tts.clearTimeout();
@@ -47,13 +47,13 @@ export class Command {
         }
     }
 
-    private async startBoss(params: string) {
+    private async startBoss(params: string, startNow: boolean = false) {
         const parsed = minimist(params);
         let names: string[] = parsed['_'];
         let boss = names.shift();
 
         let times = MechanicsMapper.getTimeToMessageMap(boss, names);
-        await Command.tts.sayTimeMap(times, this.say.bind(this));
+        await Command.tts.sayTimeMap(times, this.say.bind(this), startNow);
     }
 
     private async say(text: string) {
