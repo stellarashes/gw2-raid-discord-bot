@@ -17,7 +17,7 @@ Highly configurable bot to announce raid boss mechanics
 
 # Available commands
 * `!join` tell the bot to join the voice channel you are currently in; will not work if you are not already in one
-* `!start [boss]` Start a timer for specified boss; by default "dhuum" and "sab" are supported; note that starting a timer stops the previous timer; additionally, you can pass in names for player mechanics, so `!start sab ivy soles` will cause the bot to say ivy on south, soles on west, etc
+* `!start [boss]` or `!startnow [boss]` Start a timer for specified boss; by default "dhuum" and "sab" are supported; note that starting a timer stops the previous timer; additionally, you can pass in names for player mechanics, so `!start sab ivy soles` will cause the bot to say ivy on south, soles on west, etc.  You can optionally use `startnow` to bypass the initial countdown.
 * `!stop` Stop the current timer
 
 # Mechanics files
