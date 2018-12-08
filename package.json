@@ -30,7 +30,7 @@
     "download": "^7.0.0",
     "erlpack": "^0.1.2",
     "ffmpeg-binaries": "^3.2.2-3",
-    "google-tts-api": "0.0.3",
+    "google-tts-api": "0.0.4",
     "lodash": "^4.17.4",
     "minimist-string": "^1.0.2",
     "node-opus": "^0.2.7",
